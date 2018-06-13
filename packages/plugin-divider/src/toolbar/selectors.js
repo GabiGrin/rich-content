@@ -5,7 +5,7 @@ import {
   AlignmentLeftIcon,
   AlignmentCenterIcon,
   AlignmentRightIcon,
-} from 'wix-rich-content-common';
+} from 'wix-rich-content-editor-common';
 
 import {
   DEFAULTS,

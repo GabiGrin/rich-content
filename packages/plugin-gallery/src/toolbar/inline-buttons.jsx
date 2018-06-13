@@ -1,4 +1,4 @@
-import { BUTTONS, PluginSettingsIcon, getModalStyles } from 'wix-rich-content-common';
+import { BUTTONS, PluginSettingsIcon, getModalStyles } from 'wix-rich-content-editor-common';
 import { Modals } from '../modals';
 import AddIcon from '../icons/toolbar/icon-upload.svg';
 import ManageMediaIcon from '../icons/manageMedia.svg';

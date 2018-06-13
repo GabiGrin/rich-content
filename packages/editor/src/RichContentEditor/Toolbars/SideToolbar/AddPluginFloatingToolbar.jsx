@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { FocusManager } from 'wix-rich-content-common';
+import { FocusManager } from 'wix-rich-content-editor-common';
 import PlusIcon from '../icons/plus-default.svg';
 import PlusActiveIcon from '../icons/plus-active.svg';
 import Styles from '../../../Styles/side-toolbar.scss';

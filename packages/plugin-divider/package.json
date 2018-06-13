@@ -46,7 +46,7 @@
     "webpack-cli": "^3.0.4"
   },
   "dependencies": {
-    "wix-rich-content-common": "^1.0.15"
+    "wix-rich-content-editor-common": "^1.0.15"
   },
   "unpkg": true,
   "publishConfig": {

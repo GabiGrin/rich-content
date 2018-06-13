@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import includes from 'lodash/includes';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
-import { mergeStyles, ImageLoader } from 'wix-rich-content-common';
+import { mergeStyles, ImageLoader } from 'wix-rich-content-editor-common';
 import getImageSrc from './get-image-source';
 import styles from './image-viewer.scss';
 

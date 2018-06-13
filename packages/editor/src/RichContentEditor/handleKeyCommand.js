@@ -4,7 +4,7 @@ import {
   removeLinksInSelection,
   isAtomicBlockFocused,
   removeBlock,
-} from 'wix-rich-content-common';
+} from 'wix-rich-content-editor-common';
 import { getStaticTextToolbarId } from './Toolbars/toolbar-id';
 import { COMMANDS } from './keyBindings';
 

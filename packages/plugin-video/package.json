@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "react-player": "^1.5.0",
-    "wix-rich-content-common": "^1.0.15"
+    "wix-rich-content-editor-common": "^1.0.15"
   },
   "unpkg": true,
   "publishConfig": {

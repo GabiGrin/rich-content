@@ -111,6 +111,7 @@ module.exports = env => {
       'classnames',
       'decorate-component-with-props',
       'wix-rich-content-common',
+      'wix-rich-content-editor-common',
       /^pro-gallery-renderer.*$/,
       {
         'draft-js': {

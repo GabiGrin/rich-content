@@ -9,7 +9,7 @@ import {
   startsWithHttps,
   hasProtocol,
   mergeStyles,
-} from 'wix-rich-content-common';
+} from 'wix-rich-content-editor-common';
 import identity from 'lodash/identity';
 import trimStart from 'lodash/trimStart';
 import { SRC_TYPE_HTML, SRC_TYPE_URL } from '../constants';

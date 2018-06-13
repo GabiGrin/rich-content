@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TextButton from '../TextButton';
-import { mergeStyles } from 'wix-rich-content-common';
+import { mergeStyles } from 'wix-rich-content-editor-common';
 import styles from '~/Styles/inline-toolbar-dropdown-button.scss';
 
 export default ({ buttons, activeItem, onChange, tooltipTextKey }) =>

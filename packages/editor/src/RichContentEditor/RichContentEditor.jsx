@@ -12,10 +12,10 @@ import createPlugins from './createPlugins';
 import { keyBindingFn } from './keyBindings';
 import handleKeyCommand from './handleKeyCommand';
 import blockStyleFn from './blockStyleFn';
-import { EditorModals, AccessibilityListener, getModalStyles, normalizeInitialState } from 'wix-rich-content-common';
+import { EditorModals, AccessibilityListener, getModalStyles, normalizeInitialState } from 'wix-rich-content-editor-common';
 import styles from '~/Styles/rich-content-editor.scss';
 import draftStyles from '~/Styles/draft.scss';
-import 'wix-rich-content-common/dist/wix-rich-content-common.css';
+import 'wix-rich-content-editor-common/dist/wix-rich-content-editor-common.css';
 
 class RichContentEditor extends Component {
   constructor(props) {

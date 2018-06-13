@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { mergeStyles } from 'wix-rich-content-common';
+import { mergeStyles } from 'wix-rich-content-editor-common';
 
 import { getType, getConfig } from '../toolbar/selectors';
 import DividerLine from './divider-line';

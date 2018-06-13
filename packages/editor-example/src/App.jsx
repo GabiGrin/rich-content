@@ -6,7 +6,7 @@ import { EditorState, convertFromRaw, convertToRaw } from '@wix/draft-js';
 import Plugins from './Plugins';
 import ModalsMap from './ModalsMap';
 import * as WixRichContentEditor from 'wix-rich-content-editor';
-import { Button, normalizeInitialState } from 'wix-rich-content-common';
+import { Button, normalizeInitialState } from 'wix-rich-content-editor-common';
 import { testImages, testVideos } from './mock';
 // import testData from './testData/initialState';
 import './App.css';

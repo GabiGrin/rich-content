@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { EditorState } from '@wix/draft-js';
 import isEmpty from 'lodash/isEmpty';
-import { insertLink, getLinkDataInSelection, removeLinksInSelection } from 'wix-rich-content-common';
+import { insertLink, getLinkDataInSelection, removeLinksInSelection } from 'wix-rich-content-editor-common';
 import MobileLinkModal from './MobileLinkModal';
 
 

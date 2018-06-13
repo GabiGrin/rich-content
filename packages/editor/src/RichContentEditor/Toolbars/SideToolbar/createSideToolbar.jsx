@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import { baseUtils } from 'photography-client-lib/dist/src/utils/baseUtils';
 import SideToolbar from './SideToolbar';
 import AddPluginFloatingToolbar from './AddPluginFloatingToolbar';
-import { simplePubsub } from 'wix-rich-content-common';
+import { simplePubsub } from 'wix-rich-content-editor-common';
 
 const createSideToolbar = (config = {}) => {
   const {

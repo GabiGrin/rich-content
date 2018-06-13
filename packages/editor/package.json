@@ -45,14 +45,13 @@
     "draft-js-drag-n-drop-plugin": "^2.0.1",
     "draft-js-focus-plugin": "^2.0.1",
     "draft-js-plugins-editor": "^2.0.1",
-    "focus-trap-react": "^3.1.2",
     "i18next": "^10.5.0",
     "linkify-it": "^2.0.3",
     "lodash": "^4.17.10",
     "photography-client-lib": "^1.0.69",
     "react-i18next": "^7.6.1",
     "redraft": "^0.9.0",
-    "wix-rich-content-common": "^1.0.15",
+    "wix-rich-content-editor-common": "^1.0.15",
     "wnpm-ci": "latest"
   },
   "peerDependencies": {

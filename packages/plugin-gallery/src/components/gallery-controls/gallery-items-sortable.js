@@ -7,7 +7,7 @@ import { getScaleToFillImageURL } from 'image-client-api/dist/imageClientSDK';
 
 import Styles from './gallery-items-sortable.scss';
 import ImageSettings from './gallery-image-settings';
-import { mergeStyles, FileInput, ImageLoader } from 'wix-rich-content-common';
+import { mergeStyles, FileInput, ImageLoader } from 'wix-rich-content-editor-common';
 
 import UploadIcon from '../../icons/upload.svg';
 import Fab from '../../icons/fab.svg';

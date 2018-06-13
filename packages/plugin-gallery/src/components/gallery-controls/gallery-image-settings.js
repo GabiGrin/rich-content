@@ -13,7 +13,7 @@ import {
   SettingsSection,
   SettingsPanelFooter,
   FocusManager
-} from 'wix-rich-content-common';
+} from 'wix-rich-content-editor-common';
 import BackIcon from './icons/back.svg';
 import styles from './gallery-image-settings.scss';
 import GallerySettingsMobileHeader from './gallery-settings-mobile-header';

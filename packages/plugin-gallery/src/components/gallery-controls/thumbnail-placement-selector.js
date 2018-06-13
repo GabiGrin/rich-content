@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { mergeStyles, SelectionList } from 'wix-rich-content-common';
+import { mergeStyles, SelectionList } from 'wix-rich-content-editor-common';
 import styles from './thumbnail-placement-selector.scss';
 
 import ThumbnailIcon from './icons/layout_thumbnails.svg';

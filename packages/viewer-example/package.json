@@ -24,7 +24,7 @@
     "react-modal": "^3.1.11",
     "whatwg-fetch": "2.0.3",
     "wix-rich-content-viewer": "^1.0.21",
-    "wix-rich-content-common": "^1.0.0",
+    "wix-rich-content-editor-common": "^1.0.0",
     "wix-rich-content-plugin-divider": "^1.0.0",
     "wix-rich-content-plugin-emoji": "^1.0.0",
     "wix-rich-content-plugin-gallery": "^1.0.0",

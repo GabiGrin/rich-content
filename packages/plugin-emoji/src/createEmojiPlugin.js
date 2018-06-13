@@ -1,4 +1,4 @@
-import { createBasePlugin } from 'wix-rich-content-common';
+import { createBasePlugin } from 'wix-rich-content-editor-common';
 import { EXTERNAL_EMOJI_TYPE } from './types';
 import createEmojiPlugin from 'draft-js-emoji-plugin';
 // import 'draft-js-emoji-plugin/lib/plugin.css';

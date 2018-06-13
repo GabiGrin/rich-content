@@ -3,7 +3,7 @@ import {
   AlignmentCenterIcon,
   AlignmentRightIcon,
   AlignmentJustifyIcon,
-} from 'wix-rich-content-common';
+} from 'wix-rich-content-editor-common';
 import BoldIcon from '../icons/bold.svg';
 import ItalicIcon from '../icons/italic.svg';
 import UnderlineIcon from '../icons/underline.svg';

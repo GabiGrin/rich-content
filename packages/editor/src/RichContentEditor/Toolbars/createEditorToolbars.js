@@ -2,7 +2,7 @@ import { baseUtils } from 'photography-client-lib/dist/src/utils/baseUtils';
 import { createSideToolbar } from './SideToolbar';
 import { createMobileToolbar, createFooterToolbar, createStaticTextToolbar } from './StaticToolbar';
 import { createInlineTextToolbar } from './InlineToolbar';
-import { simplePubsub, getToolbarTheme } from 'wix-rich-content-common';
+import { simplePubsub, getToolbarTheme } from 'wix-rich-content-editor-common';
 
 const createEditorToolbars = config => {
   const {

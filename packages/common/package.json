@@ -45,7 +45,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "decorate-component-with-props": "^1.1.0",
     "focus-trap": "^2.4.5",
     "jsonschema": "^1.2.4",
     "linkify-it": "^2.0.3"

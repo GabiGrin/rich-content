@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "react-i18next": "^7.6.1",
-    "wix-rich-content-common": "^1.0.15"
+    "wix-rich-content-editor-common": "^1.0.15"
   },
   "unpkg": true,
   "publishConfig": {

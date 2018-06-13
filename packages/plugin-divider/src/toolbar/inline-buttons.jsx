@@ -2,7 +2,7 @@ import {
   BUTTONS,
   AlignmentCenterIcon,
   SizeLargeIcon
-} from 'wix-rich-content-common';
+} from 'wix-rich-content-editor-common';
 import {
   changeType,
   changeAlignmentMobile,

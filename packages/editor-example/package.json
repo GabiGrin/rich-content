@@ -25,7 +25,7 @@
     "react-json-editor-ajrm": "^2.4.4",
     "react-modal": "^3.1.11",
     "whatwg-fetch": "2.0.3",
-    "wix-rich-content-common": "^1.0.0",
+    "wix-rich-content-editor-common": "^1.0.0",
     "wix-rich-content-editor": "^1.0.0",
     "wix-rich-content-plugin-divider": "^1.0.0",
     "wix-rich-content-plugin-emoji": "^1.0.0",

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import CameraIcon from './icons/video-camera.svg';
 import classNames from 'classnames';
-import { mergeStyles, isVideoUrl, SettingsPanelFooter, TextInput } from 'wix-rich-content-common';
+import { mergeStyles, isVideoUrl, SettingsPanelFooter, TextInput } from 'wix-rich-content-editor-common';
 import styles from './video-url-input-modal.scss';
 
 export default class VideoURLInputModal extends Component {
