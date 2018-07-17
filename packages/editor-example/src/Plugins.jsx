@@ -1,4 +1,4 @@
-import { createLinkPlugin } from 'wix-rich-content-plugin-link';
+// import { createLinkPlugin } from 'wix-rich-content-plugin-link';
 import { createHashtagPlugin } from 'wix-rich-content-plugin-hashtag';
 import { createExternalEmojiPlugin } from 'wix-rich-content-plugin-emoji';
 import { createImagePlugin } from 'wix-rich-content-plugin-image';
@@ -15,7 +15,7 @@ const plugins = [
   createHtmlPlugin,
   createDividerPlugin,
   createExternalEmojiPlugin,
-  createLinkPlugin,
+  // createLinkPlugin,
   createHashtagPlugin,
   createExternalMentionsPlugin,
 ];

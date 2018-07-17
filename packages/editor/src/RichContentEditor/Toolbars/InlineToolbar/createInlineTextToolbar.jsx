@@ -8,6 +8,7 @@ import { getTextButtonsFromList } from '../buttons/utils';
 export default config => {
   const {
     buttons,
+    pluginTextButtons,
     defaultTextAlignment,
     pubsub,
     theme,
@@ -17,8 +18,13 @@ export default config => {
     relValue,
     t,
   } = config;
-  const textButtons = get(buttons, 'desktop', DesktopTextButtonList);
-  const structure = getTextButtonsFromList({ buttons: textButtons, pubsub, theme, t });
+  const pluginButtons = pluginTextButtons.reduce((buttons, buttonFn) => {
+    return Object.assign(buttons, buttonFn());
+  }, {});
+
+  const pluginButtonNames = Object.keys(pluginButtons);
+  const textButtons = get(buttons, 'desktop', [...DesktopTextButtonList, ...pluginButtonNames]);
+  const structure = getTextButtonsFromList({ buttons: textButtons, pluginButtons, pubsub, theme, t });
 
   return createInlineToolbar({
     name: 'InlineTextToolbar',

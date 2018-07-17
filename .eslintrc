@@ -1,10 +1,10 @@
 {
-  "extends": ["wix/react", "plugin:jsx-a11y/strict"],
+  "extends": ["wix/react"],
   "env": {
     "browser": true,
     "node": true
   },
-  "plugins": ["lodash", "fp", "jsx-a11y"],
+  "plugins": ["lodash", "fp"],
   "settings": {
     "react": {
       "version": "15.5.4"
@@ -58,8 +58,6 @@
     "mocha/no-exclusive-tests": "error",
     "mocha/no-skipped-tests": "error",
     "mocha/no-pending-tests": "error",
-    "no-param-reassign": "error",
-    "jsx-a11y/label-has-for": "off",
-    "jsx-a11y/aria-proptypes": "off"
+    "no-param-reassign": "error"
   }
 }

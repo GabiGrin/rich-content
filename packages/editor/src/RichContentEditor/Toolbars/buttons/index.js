@@ -10,7 +10,6 @@ export const DesktopTextButtonList = [
   'UnorderedList',
   // 'Indent',
   'Separator',
-  'Link',
 ];
 
 export const MobileTextButtonList = [
@@ -19,7 +18,6 @@ export const MobileTextButtonList = [
   'Underline',
   'Title',
   'Blockquote',
-  'Link',
   'AddPlugin',
   'AlignLeft',
   'AlignCenter',
@@ -30,7 +28,6 @@ export const MobileTextButtonList = [
 ];
 
 export { default as TextAlignmentButton } from './TextAlignmentButton';
-export { default as TextLinkButton } from './TextLinkButton';
 export { default as AddPluginButton } from './AddPluginButton';
 export {
   BoldButton,

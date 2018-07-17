@@ -21,7 +21,7 @@ const createEditorToolbars = config => {
     t,
     refId
   } = config;
-  const { pluginButtons, textButtons } = buttons;
+  const { pluginButtons, pluginTextButtons, textButtons } = buttons;
   const sideToolbarPluginButtons = pluginButtons && pluginButtons
     .filter(({ originalConfig }) => originalConfig.addToSideToolbar !== false)
     .map(({ component }) => component);
@@ -49,6 +49,7 @@ const createEditorToolbars = config => {
     toolbars.textInline = createInlineTextToolbar({
       refId,
       buttons: textButtons,
+      pluginTextButtons,
       defaultTextAlignment: textAlignment,
       theme: { ...getToolbarTheme(theme, 'inline'), ...theme },
       anchorTarget,

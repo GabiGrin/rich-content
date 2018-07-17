@@ -10,11 +10,11 @@ const createPlugins = ({ plugins, config, helpers, theme, t, isMobile, anchorTar
   const wixPluginConfig = { decorator: wixPluginsDecorators, helpers, theme, t, isMobile, anchorTarget, relValue, ...config };
   const wixPlugins = (plugins || []).map(createPlugin => createPlugin(wixPluginConfig));
 
-  const pluginButtons = [];
+  let pluginButtons = [];
+  let pluginTextButtons = [];
   wixPlugins.forEach(wixPlugin => {
-    wixPlugin.InsertPluginButtons && wixPlugin.InsertPluginButtons.forEach(insertPluginButton => {
-      pluginButtons.push(insertPluginButton);
-    });
+    pluginButtons = [...pluginButtons, ...(wixPlugin.InsertPluginButtons || [])];
+    pluginTextButtons = [...pluginTextButtons, ...(wixPlugin.TextButtons || [])];
   });
 
   const pluginInstances = [
@@ -25,7 +25,8 @@ const createPlugins = ({ plugins, config, helpers, theme, t, isMobile, anchorTar
 
   return {
     pluginInstances,
-    pluginButtons
+    pluginButtons,
+    pluginTextButtons
   };
 };
 

@@ -12,12 +12,11 @@ import {
   AlignTextJustifyButton,
   UnorderedListButton,
   OrderedListButton,
-  TextLinkButton,
 } from '../index';
 import createThemedSeparator from './createThemedSeparator';
 import HeadingSwitchButton from '../inline-styling/HeadingSwitchButton';
 
-export default ({ buttons, theme, t, isMobile }) => {
+export default ({ buttons, theme, t, isMobile, pluginButtons }) => {
   const themedSeparator = horizontal => createThemedSeparator({ theme, horizontal });
 
   const buttonByName = {
@@ -34,12 +33,16 @@ export default ({ buttons, theme, t, isMobile }) => {
     AlignJustify: AlignTextJustifyButton,
     OrderedList: OrderedListButton,
     UnorderedList: UnorderedListButton,
-    Link: TextLinkButton, // TODO: should be added from plugin
     Separator: themedSeparator(false),
     HorizontalSeparator: themedSeparator(true),
   };
 
-  const structure = buttons.map(buttonName => buttonByName[buttonName]);
+  let buttonMap = buttonByName;
+  if (pluginButtons) {
+    buttonMap = Object.assign(buttonMap, pluginButtons);
+  }
+
+  const structure = buttons.map(buttonName => buttonMap[buttonName]);
 
   return structure.map(b => decorateComponentWithProps(b, { t, isMobile }));
 };
