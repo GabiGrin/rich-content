@@ -123,8 +123,8 @@
         },
         "cubeRatio": {
           "$id": "/properties/styles/properties/cubeRatio",
-          "type": "integer",
-          "title": "The Cuberatio Schema ",
+          "type": ["number", "null"],
+          "title": "The Cuberatio Schema",
           "default": 0,
           "examples": [
             1
@@ -150,7 +150,7 @@
         },
         "numberOfImagesPerRow": {
           "$id": "/properties/styles/properties/numberOfImagesPerRow",
-          "type": "integer",
+          "type": ["integer", "null"],
           "title": "The Numberofimagesperrow Schema ",
           "default": 0,
           "examples": [

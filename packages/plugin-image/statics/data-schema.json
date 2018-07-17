@@ -93,7 +93,7 @@
     },
     "src": {
       "$id": "/properties/src",
-      "type": "object",
+      "type": ["object", "null"],
       "properties": {
         "id": {
           "$id": "/properties/src/properties/id",
