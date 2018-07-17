@@ -2,13 +2,16 @@
 import get from 'lodash/get';
 import createInlineToolbar from './createInlineToolbar';
 import { DesktopTextButtonList } from '../buttons/';
-import { getTextButtonsFromList } from '../buttons/utils';
-
+import {
+  getTextButtonsFromList,
+  reducePluginTextButtons,
+  reducePluginTextButtonNames,
+  mergeButtonLists } from '../buttons/utils';
 
 export default config => {
   const {
     buttons,
-    pluginTextButtons,
+    pluginTextButtonMappers,
     defaultTextAlignment,
     pubsub,
     theme,
@@ -18,12 +21,12 @@ export default config => {
     relValue,
     t,
   } = config;
-  const pluginButtons = pluginTextButtons.reduce((buttons, buttonFn) => {
-    return Object.assign(buttons, buttonFn());
-  }, {});
 
-  const pluginButtonNames = Object.keys(pluginButtons);
-  const textButtons = get(buttons, 'desktop', [...DesktopTextButtonList, ...pluginButtonNames]);
+  const pluginButtons = reducePluginTextButtons(pluginTextButtonMappers);
+  const pluginButtonNames = reducePluginTextButtonNames(pluginTextButtonMappers);
+  const buttonNameList = mergeButtonLists(DesktopTextButtonList, pluginButtonNames,
+    list => list.length > 0 ? [{ name: 'Separator' }, ...list] : list);
+  const textButtons = get(buttons, 'desktop', buttonNameList);
   const structure = getTextButtonsFromList({ buttons: textButtons, pluginButtons, pubsub, theme, t });
 
   return createInlineToolbar({

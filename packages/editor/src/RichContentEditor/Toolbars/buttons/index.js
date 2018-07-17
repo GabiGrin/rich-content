@@ -9,7 +9,6 @@ export const DesktopTextButtonList = [
   'OrderedList',
   'UnorderedList',
   // 'Indent',
-  'Separator',
 ];
 
 export const MobileTextButtonList = [
@@ -18,6 +17,7 @@ export const MobileTextButtonList = [
   'Underline',
   'Title',
   'Blockquote',
+  // TODO: Link here
   'AddPlugin',
   'AlignLeft',
   'AlignCenter',

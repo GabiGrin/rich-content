@@ -4,19 +4,22 @@ import get from 'lodash/get';
 import { baseUtils } from 'photography-client-lib/dist/src/utils/baseUtils';
 import createStaticToolbar from './createStaticToolbar';
 import { AddPluginButton, MobileTextButtonList } from '../buttons';
-import { getTextButtonsFromList } from '../buttons/utils';
+import { getTextButtonsFromList, reducePluginTextButtonMappers } from '../buttons/utils';
 import toolbarStyles from '../../../../statics/styles/mobile-toolbar.scss';
 import buttonStyles from '../../../../statics/styles/mobile-toolbar-button.scss';
 import separatorStyles from '../../../../statics/styles/mobile-toolbar-separator.scss';
 
-const createMobileToolbar = ({ buttons, helpers, pubsub, getEditorState, setEditorState, anchorTarget, relValue, theme, t }) => {
+const createMobileToolbar = ({
+  buttons, pluginTextButtonMappers, helpers, pubsub, getEditorState, setEditorState,
+  anchorTarget, relValue, theme, t
+}) => {
   const mobileTheme = getMobileTheme(theme);
   return createStaticToolbar({
     helpers,
     t,
     name: 'MobileToolbar',
     theme: mobileTheme,
-    structure: getMobileButtons({ buttons, helpers, pubsub, getEditorState, setEditorState, mobileTheme, t }),
+    structure: getMobileButtons({ buttons, pluginTextButtonMappers, helpers, pubsub, getEditorState, setEditorState, mobileTheme, t }),
     anchorTarget,
     relValue,
     isMobile: true
@@ -99,9 +102,11 @@ const getMobileTheme = theme => {
   };
 };
 
-const getMobileButtons = ({ buttons, helpers, pubsub, getEditorState, setEditorState, mobileTheme, t }) => {
+const getMobileButtons = ({ buttons, pluginTextButtonMappers, helpers, pubsub, getEditorState, setEditorState, mobileTheme, t }) => {
+  const pluginButtons = reducePluginTextButtonMappers(pluginTextButtonMappers, buttonData => buttonData.isMobile !== false);
+  const pluginButtonNames = Object.keys(pluginButtons);
   const requestedButtons = get(buttons, 'textButtons.mobile');
-  const textButtons = Array.isArray(requestedButtons) ? [...requestedButtons] : [...MobileTextButtonList];
+  const textButtons = Array.isArray(requestedButtons) ? [...requestedButtons] : [...MobileTextButtonList, ...pluginButtonNames];
   const addPluginIndex = textButtons.findIndex(b => b === 'AddPlugin');
   if (addPluginIndex !== -1) {
     textButtons.splice(addPluginIndex, 1);
@@ -109,6 +114,7 @@ const getMobileButtons = ({ buttons, helpers, pubsub, getEditorState, setEditorS
 
   const structure = getTextButtonsFromList({
     buttons: textButtons,
+    pluginButtons,
     theme: mobileTheme,
     isMobile: true,
     t,

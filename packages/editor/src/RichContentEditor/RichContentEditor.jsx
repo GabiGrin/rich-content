@@ -50,13 +50,13 @@ class RichContentEditor extends Component {
       t,
     } = this.props;
     const { theme } = this.state;
-    const { pluginInstances, pluginButtons, pluginTextButtons } =
+    const { pluginInstances, pluginButtons, pluginTextButtonMappers } =
       createPlugins({ plugins, config, helpers, theme, t, isMobile, anchorTarget, relValue });
-    this.initEditorToolbars(pluginButtons, pluginTextButtons);
+    this.initEditorToolbars(pluginButtons, pluginTextButtonMappers);
     this.plugins = [...pluginInstances, ...Object.values(this.toolbars)];
   }
 
-  initEditorToolbars(pluginButtons, pluginTextButtons) {
+  initEditorToolbars(pluginButtons, pluginTextButtonMappers) {
     const {
       helpers,
       anchorTarget,
@@ -70,7 +70,7 @@ class RichContentEditor extends Component {
       t,
     } = this.props;
     const { theme } = this.state;
-    const buttons = { textButtons, pluginButtons, pluginTextButtons };
+    const buttons = { textButtons, pluginButtons, pluginTextButtonMappers };
 
     this.toolbars = createEditorToolbars({
       buttons,

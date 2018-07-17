@@ -91,7 +91,7 @@ const createBasePlugin = (config = {}, underlyingPlugin) => {
 
   const InlineModals = config.inlineModals;
 
-  const TextButtons = config.toolbar && config.toolbar.TextButtons;
+  const TextButtonMapper = config.toolbar && config.toolbar.TextButtonMapper;
 
   const blockRendererFn = (contentBlock, { getEditorState, setEditorState, getReadOnly }) => {
     if (contentBlock.getType() === 'atomic') {
@@ -123,7 +123,7 @@ const createBasePlugin = (config = {}, underlyingPlugin) => {
     Toolbar,
     InsertPluginButtons,
     InlineModals,
-    TextButtons
+    TextButtonMapper
   };
 
   if (underlyingPlugin) {

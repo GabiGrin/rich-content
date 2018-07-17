@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 import createStaticToolbar from './createStaticToolbar';
 import { DesktopTextButtonList } from '../buttons/';
-import { getTextButtonsFromList } from '../buttons/utils';
+import { getTextButtonsFromList, reducePluginTextButtonMappers } from '../buttons/utils';
 import { getStaticTextToolbarId } from '../toolbar-id';
 import toolbarStyles from '../../../../statics/styles/text-static-toolbar.scss';
 import buttonStyles from '../../../../statics/styles/text-static-toolbar-button.scss';
@@ -82,10 +82,13 @@ const getStaticTextTheme = theme => {
   };
 };
 
-export default ({ buttons, pubsub, theme, isMobile, helpers, anchorTarget, relValue, t, refId }) => {
-  const textButtons = get(buttons, 'desktop', DesktopTextButtonList);
+export default ({ buttons, pluginTextButtonMappers, pubsub, theme, isMobile, helpers, anchorTarget, relValue, t, refId }) => {
+  const pluginButtons = reducePluginTextButtonMappers(pluginTextButtonMappers);
+  const pluginButtonNames = Object.keys(pluginButtons);
+  const separatedPluginButtonNames = pluginButtonNames.length > 0 ? ['Separator', ...pluginButtonNames] : pluginButtonNames;
+  const textButtons = get(buttons, 'desktop', [...DesktopTextButtonList, ...separatedPluginButtonNames]);
   const staticTextTheme = getStaticTextTheme(theme);
-  const structure = getTextButtonsFromList({ buttons: textButtons, pubsub, theme: staticTextTheme, t });
+  const structure = getTextButtonsFromList({ buttons: textButtons, pluginButtons, pubsub, theme: staticTextTheme, t });
   const id = getStaticTextToolbarId(refId);
 
   return createStaticToolbar({
