@@ -19,62 +19,27 @@ import HeadingSwitchButton from '../inline-styling/HeadingSwitchButton';
 
 export default ({ buttons, theme, t, isMobile }) => {
   const themedSeparator = horizontal => createThemedSeparator({ theme, horizontal });
-  const structure = [];
-  buttons.forEach(buttonName => {
-    switch (buttonName) {
-      case 'Bold':
-        structure.push(BoldButton);
-        break;
-      case 'Italic':
-        structure.push(ItalicButton);
-        break;
-      case 'Underline':
-        structure.push(UnderlineButton);
-        break;
-      case 'Indent':
-        structure.push(IndentButton);
-        break;
-      case 'Title':
-        structure.push(HeadingSwitchButton);
-        break;
-      case 'Blockquote':
-        structure.push(BlockquoteButton);
-        break;
-      case 'Alignment':
-        structure.push(TextAlignmentButton);
-        break;
-      case 'AlignLeft':
-        structure.push(AlignTextLeftButton);
-        break;
-      case 'AlignCenter':
-        structure.push(AlignTextCenterButton);
-        break;
-      case 'AlignRight':
-        structure.push(AlignTextRightButton);
-        break;
-      case 'AlignJustify':
-        structure.push(AlignTextJustifyButton);
-        break;
-      case 'OrderedList':
-        structure.push(OrderedListButton);
-        break;
-      case 'UnorderedList':
-        structure.push(UnorderedListButton);
-        break;
-      case 'Link':
-        structure.push(TextLinkButton);
-        break;
-      case 'Separator':
-        structure.push(themedSeparator(false));
-        break;
-      case 'HorizontalSeparator':
-        structure.push(themedSeparator(true));
-        break;
-      default:
-        console.warn(`Failed to load uknown text button "${buttonName}"`); //eslint-disable-line no-console
-        break;
-    }
-  });
+
+  const buttonByName = {
+    Bold: BoldButton,
+    Italic: ItalicButton,
+    Underline: UnderlineButton,
+    Indent: IndentButton,
+    Title: HeadingSwitchButton,
+    Blockquote: BlockquoteButton,
+    Alignment: TextAlignmentButton,
+    AlignLeft: AlignTextLeftButton,
+    AlignCenter: AlignTextCenterButton,
+    AlignRight: AlignTextRightButton,
+    AlignJustify: AlignTextJustifyButton,
+    OrderedList: OrderedListButton,
+    UnorderedList: UnorderedListButton,
+    Link: TextLinkButton, // TODO: should be added from plugin
+    Separator: themedSeparator(false),
+    HorizontalSeparator: themedSeparator(true),
+  };
+
+  const structure = buttons.map(buttonName => buttonByName[buttonName]);
 
   return structure.map(b => decorateComponentWithProps(b, { t, isMobile }));
 };
