@@ -5,7 +5,12 @@ export default function createToolbar() {
     TextButtonMapper: () => ({
       Link: {
         component: TextLinkButton,
-        isMobile: true
+
+        // display on mobile
+        isMobile: true,
+
+        // index of the button for various form-factors (allowed values: desktop, mobile)
+        position: { mobile: 5 }
       }
     })
   };
