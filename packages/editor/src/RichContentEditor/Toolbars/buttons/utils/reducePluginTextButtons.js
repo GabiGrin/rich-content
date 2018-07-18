@@ -5,13 +5,14 @@
  */
 export const reducePluginTextButtons = (pluginTextButtonMappers, filterMap = () => true) => {
   // iterate plugin button mappers
-  return pluginTextButtonMappers.reduce((buttons, mapper) => {
+  return pluginTextButtonMappers.reduce((buttons, mapper, i) => {
     const map = mapper();
     if (map) {
       // iterate each map
       const mapButtons = Object.keys(map).reduce((mapButtons, key) => {
         if (filterMap(map[key])) {
-          return Object.assign(mapButtons, { key: map[key].component });
+          // index appended to avoid cross-plugin name conflicts
+          return Object.assign(mapButtons, { [`${key}_${i}`]: map[key].component });
         }
         return mapButtons;
       }, {});
@@ -28,13 +29,14 @@ export const reducePluginTextButtons = (pluginTextButtonMappers, filterMap = () 
  */
 export const reducePluginTextButtonNames = (pluginTextButtonMappers, filterMap = () => true) => {
   // iterate plugin button mappers
-  return pluginTextButtonMappers.reduce((buttonNames, mapper) => {
+  return pluginTextButtonMappers.reduce((buttonNames, mapper, i) => {
     const map = mapper();
     if (map) {
       // iterate each map
       const mapButtonNames = Object.keys(map).reduce((mapButtonNames, key) => {
         if (filterMap(map[key])) {
-          return [...mapButtonNames, { name: key, position: map[key].position }];
+          // index appended to avoid cross-plugin name conflicts
+          return [...mapButtonNames, { name: `${key}_${i}`, position: map[key].position }];
         }
         return mapButtonNames;
       }, []);

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 import createStaticToolbar from './createStaticToolbar';
 import { DesktopTextButtonList } from '../buttons/';
-import { getTextButtonsFromList, reducePluginTextButtonMappers } from '../buttons/utils';
+import { getTextButtonsFromList, reducePluginTextButtons, reducePluginTextButtonNames, mergeButtonLists } from '../buttons/utils';
 import { getStaticTextToolbarId } from '../toolbar-id';
 import toolbarStyles from '../../../../statics/styles/text-static-toolbar.scss';
 import buttonStyles from '../../../../statics/styles/text-static-toolbar-button.scss';
@@ -83,12 +83,23 @@ const getStaticTextTheme = theme => {
 };
 
 export default ({ buttons, pluginTextButtonMappers, pubsub, theme, isMobile, helpers, anchorTarget, relValue, t, refId }) => {
-  const pluginButtons = reducePluginTextButtonMappers(pluginTextButtonMappers);
-  const pluginButtonNames = Object.keys(pluginButtons);
-  const separatedPluginButtonNames = pluginButtonNames.length > 0 ? ['Separator', ...pluginButtonNames] : pluginButtonNames;
-  const textButtons = get(buttons, 'desktop', [...DesktopTextButtonList, ...separatedPluginButtonNames]);
   const staticTextTheme = getStaticTextTheme(theme);
+
+  const appendSeparator = ({ mergedList, sourceList, buttonData, formFactor }) => {
+    if (mergedList.length === sourceList.length &&
+      (!buttonData.position || buttonData.position[formFactor] === undefined ||
+        buttonData.position[formFactor] < 0 || buttonData.position[formFactor] > mergedList.length)) {
+      return [...mergedList, 'Separator'];
+    }
+    return mergedList;
+  };
+
+  const pluginButtons = reducePluginTextButtons(pluginTextButtonMappers);
+  const pluginButtonNames = reducePluginTextButtonNames(pluginTextButtonMappers);
+  const mergedList = mergeButtonLists(DesktopTextButtonList, pluginButtonNames, 'desktop', appendSeparator);
+  const textButtons = get(buttons, 'desktop', mergedList);
   const structure = getTextButtonsFromList({ buttons: textButtons, pluginButtons, pubsub, theme: staticTextTheme, t });
+
   const id = getStaticTextToolbarId(refId);
 
   return createStaticToolbar({

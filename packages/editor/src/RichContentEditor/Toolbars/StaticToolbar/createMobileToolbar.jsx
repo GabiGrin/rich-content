@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import { baseUtils } from 'photography-client-lib/dist/src/utils/baseUtils';
 import createStaticToolbar from './createStaticToolbar';
 import { AddPluginButton, MobileTextButtonList } from '../buttons';
-import { getTextButtonsFromList, reducePluginTextButtonMappers } from '../buttons/utils';
+import { getTextButtonsFromList, reducePluginTextButtons, reducePluginTextButtonNames, mergeButtonLists } from '../buttons/utils';
 import toolbarStyles from '../../../../statics/styles/mobile-toolbar.scss';
 import buttonStyles from '../../../../statics/styles/mobile-toolbar-button.scss';
 import separatorStyles from '../../../../statics/styles/mobile-toolbar-separator.scss';
@@ -103,22 +103,18 @@ const getMobileTheme = theme => {
 };
 
 const getMobileButtons = ({ buttons, pluginTextButtonMappers, helpers, pubsub, getEditorState, setEditorState, mobileTheme, t }) => {
-  const pluginButtons = reducePluginTextButtonMappers(pluginTextButtonMappers, buttonData => buttonData.isMobile !== false);
-  const pluginButtonNames = Object.keys(pluginButtons);
+  const pluginButtons = reducePluginTextButtons(pluginTextButtonMappers, buttonData => buttonData.isMobile !== false);
+  const pluginButtonNames = reducePluginTextButtonNames(pluginTextButtonMappers, buttonData => buttonData.isMobile !== false);
+  const mergedList = mergeButtonLists(MobileTextButtonList, pluginButtonNames, 'mobile');
   const requestedButtons = get(buttons, 'textButtons.mobile');
-  const textButtons = Array.isArray(requestedButtons) ? [...requestedButtons] : [...MobileTextButtonList, ...pluginButtonNames];
+  const textButtons = Array.isArray(requestedButtons) ? [...requestedButtons] : [...mergedList];
   const addPluginIndex = textButtons.findIndex(b => b === 'AddPlugin');
+
   if (addPluginIndex !== -1) {
     textButtons.splice(addPluginIndex, 1);
   }
 
-  const structure = getTextButtonsFromList({
-    buttons: textButtons,
-    pluginButtons,
-    theme: mobileTheme,
-    isMobile: true,
-    t,
-  });
+  const structure = getTextButtonsFromList({ buttons: textButtons, pluginButtons, theme: mobileTheme, isMobile: true, t });
 
   if (addPluginIndex !== -1) {
     const addAddPluginButton = buttons.pluginButtons && buttons.pluginButtons.length;
